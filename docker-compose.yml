@@ -1,0 +1,22 @@
+#version: '3'
+services:
+  xiaoya-alist:
+    container_name: xiaoya-alist
+    image: yilee01/xiaoya-alist:latest
+    volumes:
+      - ./xiaoya/conf:/data
+      - ./xiaoya/data:/opt/alist/data
+    ports:
+      - "5678:5678"
+    env_file:
+      - env
+    environment:
+      - PUID=0
+      - PGID=0
+    restart: on-failure:3
+    networks:
+      - default
+
+networks:
+  default:
+    external: true

@@ -1,0 +1,81 @@
+name: Bug 报告
+description: 反馈 Bug 来改进项目
+title: "[BUG]: "
+labels: ["bug"]
+assignees: 
+  - monlor
+
+body:
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 提交检查
+      description: 请确认以下内容
+      options:
+        - label: 我已经搜索过 Issues，没有找到类似问题
+        - label: 我已经使用[百度](https://www.baidu.com)或[谷歌](https://www.google.com)搜索过，没有找到类似问题
+        - label: 我已经检查过[常见问题](https://github.com/monlor/docker-xiaoya/blob/main/Questions.md)，没有找到类似问题
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 描述 bug
+      description: 对 bug 的清晰简洁的描述。
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 重现步骤
+      description: |
+        复现问题的步骤:
+          1. 进入 '...'
+          2. 点击 '....'
+          3. 滚动到 '....'
+          4. 出现错误
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期行为
+      description: 对您期望发生的行为的清晰简洁的描述。
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: 截图
+      description: 如果适用,添加截图以帮助解释您的问题。
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志
+      render: shell
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: 设备 (请填写以下信息)
+      options:
+        - Linux
+        - Windows
+        - Mac
+        - 群晖
+        - 绿联
+        - 其他（在其他信息中补充）
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 其他信息
+      description: 在此添加有关问题的任何其他上下文。
+
