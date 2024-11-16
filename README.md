@@ -6,8 +6,18 @@ tvbox访问地址：http://ip:5678/tvbox/my_ext.json
 
 ## 启动命令
 
-```
+```sh
 docker run -d -p 5678:5678 --restart=unless-stopped --name=xiaoya yilee01/xiaoya-alist:latest
+```
+
+## 自动更新小雅的文件
+
+在宿主机配置 `/etc/crontab`，表达式书写参考 https://tool.lu/crontab/
+
+```sh
+[cron表达式] /usr/bin/docker restart [容器名称]
+
+eg: 0 3 * * * /usr/bin/docker restart xiaoya-alist
 ```
 
 ## 环境变量
@@ -40,7 +50,7 @@ docker run -d -p 5678:5678 --restart=unless-stopped --name=xiaoya yilee01/xiaoya
 
 `WEBDAV_PASSWORD`: webdav用户名为dav，设置密码。默认用户密码：guest/guest_Api789
 
-`AUTO_UPDATE_ENABLED`: 每天自动更新小雅的文件，true/false，默认false
+`AUTO_UPDATE_ENABLED`: 每天自动更新小雅的文件索引，true/false，默认false【仅更新索引，并不直接更新小雅的文件】
 
 `AUTO_CLEAR_ENABLED`: 自动清理阿里云云盘的文件，true/false，默认false
 
